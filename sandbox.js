@@ -1,9 +1,9 @@
-let taxableBracketOne = 0;
-let taxableBracketTwo = 0;
-let taxableBracketThree = 0;
-
-
 function stampDutyCalc(propertyValue) {
+
+    let taxableBracketOne = 0;
+    let taxableBracketTwo = 0;
+    let taxableBracketThree = 0;
+
     if(propertyValue <= 250000) {
         return "£" + 0 + " payable."
     }
@@ -33,19 +33,20 @@ function stampDutyCalc(propertyValue) {
         let taxAmount = tax1 + tax2 + tax3;
         return "£" + taxAmount + " payable."
     }
+
+    function bracketOne(value) {
+        return (value / 100) * 5;
+    }
+    
+    function bracketTwo(value) {
+        return (value / 100) * 10;
+    }
+    
+    function bracketThree(value) {
+        return (value / 100) * 12;
+    }
 }
 
-function bracketOne(value) {
-    return (value / 100) * 5;
-}
+console.log(stampDutyCalc(150000))
 
-function bracketTwo(value) {
-    return (value / 100) * 10;
-}
-
-function bracketThree(value) {
-    return (value / 100) * 12;
-}
-
-
-console.log(stampDutyCalc(50000))
+module.exports = stampDutyCalc;
